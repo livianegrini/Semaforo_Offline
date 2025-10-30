@@ -10,10 +10,9 @@
 ### Parte 1: Montagem Física do Semáforo
 
 Imagem 01: Montagem do semáforo na protoboard
-![Montagem do semáforo](../Semaforo_Offline/assets/imagens/semaforo_verde.jpeg)  
+![Montagem do semáforo](https://res.cloudinary.com/drog2ehgw/image/upload/v1761850897/semaforo_verde_b7nicg.jpg)  
 *Fonte: Imagem autoral, 2025.*
 
----
 
 ### Parte 2: Programação e Lógica do Semáforo
 
@@ -133,7 +132,7 @@ A atividade foi submetida à avaliação de pelo menos dois colegas, considerand
 | Avaliador | Montagem física (4) | Pontos | Temporização (3) | Pontos | Código & estrutura (3) | Pontos | Observações gerais                                                         | Total (10) |
 |-----------|----------------------|--------|-------------------|--------|------------------------|--------|----------------------------------------------------------------------------|------------|
 | Luiz     | Contempla completamente | 4.0    | Contempla parcialmente         | 2.9   | Contempla               | 3    | Estrutura de jumpers bem organizados, bom funcionamento do botão para pedestres, código sem comentários. | 9.9        |
-| Amanda     | Contempla  |     | contempla          |    | Contempla               |   |  |        |
+| Amanda Cristina Martinez da Rosa     | Contempla  parcialmente | 3.5    | contempla          | 3    | Contempla               | 3    |  Semáforo funcionou bem e conseguiu implementar um elemento a mais na montagem. Porém, senti que o contexto do elemento a mais, botãoe mais dois LEDs, poderia ser mais claro com o sentido de um semáforo | 9.5       |
 
 ### Conclusão
 A realização da atividade permitiu integrar conhecimentos de eletrônica e programação. Foi possível compreender o funcionamento básico de LEDs e resistores em um circuito controlado por Arduino.
