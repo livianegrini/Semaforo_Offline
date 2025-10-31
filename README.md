@@ -13,20 +13,79 @@ Imagem 01: Montagem do semáforo na protoboard
 ![Montagem do semáforo](https://res.cloudinary.com/drog2ehgw/image/upload/v1761850897/semaforo_verde_b7nicg.jpg)  
 *Fonte: Imagem autoral, 2025.*
 
+### Materiais Utilizados
+
+| Componente | Quantidade | Função |
+|-------------|-------------|--------|
+| **Arduino UNO** | 1 | Placa responsável por controlar o circuito do semáforo |
+| **Protoboard (breadboard)** | 1 | Utilizada para montar o circuito sem necessidade de solda |
+| **LED vermelho** | 2 | Representa o sinal de pare |
+| **LED amarelo** | 1 | Representa o sinal de atenção |
+| **LED verde** | 2 | Representa o sinal de siga |
+| **Botão (push button)** | 1 | Simula o botão de pedestre para mudar o estado do semáforo |
+| **Resistores** | 5 | Limitam a corrente dos LEDs, evitando que queimem |
+| **Jumpers (fios de conexão)** | Vários | Fazem as conexões entre os pinos do Arduino e os componentes |
+| **Cabo USB** | 1 | Alimenta e envia o código do computador para o Arduino |
+| **Estrutura de madeira (mini poste de semáforo)** | 1 | Suporte físico para os LEDs do semáforo |
+| **Notebook com Arduino IDE** | 1 | Usado para programar e monitorar o funcionamento do circuito |
+
+---
+
+### Passo a passo resumido de montagem
+
+1. **Preparar o material:**  
+   - Arduino, protoboard, LEDs (vermelho, amarelo, verde), LEDs extras (vermelho e verde), resistores, botão, fios de conexão.
+
+2. **Montar o circuito base:**  
+   - Posicione a protoboard sobre a mesa.  
+   - Conecte o Arduino à protoboard via cabo USB.
+
+3. **Conectar os LEDs principais:**  
+   - LED vermelho ao pino 13  
+   - LED amarelo ao pino 12  
+   - LED verde ao pino 11  
+   - Coloque um resistor em série com cada LED.  
+   - Ligue os cátodos (perna menor) de todos os LEDs ao GND.
+   - Coloque eles no molde do semáforo.
+
+4. **Conectar os LEDs extras:**  
+   - LED extra vermelho ao pino 9  
+   - LED extra verde ao pino 10  
+   - Coloque um resistor em série com cada LED.  
+   - Conecte os cátodos ao GND.
+
+5. **Conectar o botão:**  
+   - Ligue um terminal do botão ao pino A2 e o outro ao GND.  
+   - Configure no código usando `pinMode(botao, INPUT_PULLUP)`.
+
+6. **Verificar conexões:**  
+   - Confirme que o GND da protoboard está conectado ao GND do Arduino.  
+   - Garanta que não há fios soltos ou LEDs invertidos.
+
+7. **Enviar o código para o Arduino:**  
+   - Abra o Arduino IDE, insira o código do semáforo e faça o upload.  
+   - Teste o funcionamento:  
+     - O semáforo deve alternar entre verde → amarelo → vermelho.  
+     - O LED extra vermelho acende junto com o amarelo e verde.  
+     - O LED extra verde acende junto com o vermelho principal.  
+     - Ao apertar o botão, a sequência muda imediatamente para vermelho e o LED extra verde acende.
+
+8. **Organizar os fios:**  
+   - Use cores diferentes para facilitar identificação (ex: vermelho = energia, preto = GND, azul = sinal).  
+
+
 
 ### Parte 2: Programação e Lógica do Semáforo
 
-O semáforo foi programado seguindo a sequência:
+&emsp;O semáforo foi programado seguindo a sequência:
 
 1. **Vermelho:** 6 segundos  
 2. **Verde:** 4 segundos  
 3. **Amarelo:** 2 segundos  
 
-O ciclo se repete continuamente.
+&emsp;O ciclo se repete continuamente. Toda vez que o vermelho fica aceso, o verde para pedestres (que está na placa de protoboard) fica aceso também.
 
-Toda vez que o vermelho fica aceso, o verde para pedestres (que está na placa de protoboard) fica aceso também.
-
-Ao clicar no botão, o semáforo fica vermelho e o de pedestres fica verde, ambos por 5 segundos. Depois disso, o ciclo volta normalmente.
+&emsp;Ao clicar no botão, o semáforo fica vermelho e o de pedestres fica verde, ambos por 5 segundos. Depois disso, o ciclo volta normalmente.
 
 ### Código Arduino utilizado:
 
@@ -111,13 +170,12 @@ void acionarVermelhoEmergencia() {
   digitalWrite(*pLedExtra, LOW);
 }
 ```
-### Funcionamento do código:
+### Funcionamento do código
 
-O programa alterna entre os LEDs, acendendo apenas a cor correspondente à fase atual do semáforo.
+&emsp;O programa controla os LEDs do semáforo, acendendo apenas a cor correspondente à fase atual (verde, amarelo ou vermelho). Cada fase permanece pelo tempo definido no `delay()`. O ciclo se repete continuamente, garantindo o funcionamento constante do semáforo.  
 
-Cada fase é mantida pelo tempo definido no delay().
+&emsp;Além disso, o botão permite alterar a sequência: ao ser pressionado, o semáforo muda imediatamente para o vermelho e acende o LED extra verde, simulando situações de prioridade ou parada de emergência.
 
-O ciclo se repete infinitamente, garantindo que o semáforo funcione de forma contínua.
 
 ### Parte 3: Avaliação de Pares
 A atividade foi submetida à avaliação de pelo menos dois colegas, considerando:
@@ -135,9 +193,11 @@ A atividade foi submetida à avaliação de pelo menos dois colegas, considerand
 | Amanda Cristina Martinez da Rosa     | Contempla  parcialmente | 3.5    | contempla          | 3    | Contempla               | 3    |  Semáforo funcionou bem e conseguiu implementar um elemento a mais na montagem. Porém, senti que o contexto do elemento a mais, botãoe mais dois LEDs, poderia ser mais claro com o sentido de um semáforo | 9.5       |
 
 ### Conclusão
-A realização da atividade permitiu integrar conhecimentos de eletrônica e programação. Foi possível compreender o funcionamento básico de LEDs e resistores em um circuito controlado por Arduino.
 
-O experimento também reforçou conceitos de lógica sequencial e de automatização de sistemas simples.
+&emsp;A realização desta atividade permitiu integrar conhecimentos de eletrônica e programação, proporcionando uma compreensão prática do funcionamento de LEDs e resistores em um circuito controlado por Arduino.  
+
+&emsp;Além disso, o experimento reforçou conceitos de lógica sequencial e demonstrou como automatizar sistemas simples, consolidando a aplicação prática de programação em dispositivos físicos.
+
 
 ### Vídeo Demonstração:
-[(O vídeo deve mostrar o funcionamento do semáforo.)](https://youtu.be/OeQ-svH8c24?si=wKR4JJZf6fzLiXFF)
+[(Vídeo do funcionamento do semáforo.)](https://youtu.be/bTZ7D_PirdQ?si=twu-Gi7-NBGxgIhW)
